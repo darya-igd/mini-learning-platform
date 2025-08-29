@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Env
+.venv/
+.env
+
+# DB (if SQLite fallback used)
+*.db
+
+# Node / frontend (later)
+node_modules/
+dist/
