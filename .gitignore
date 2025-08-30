@@ -10,6 +10,10 @@ __pycache__/
 # DB (if SQLite fallback used)
 *.db
 
+# Environment variables
+*.env
+
 # Node / frontend (later)
 node_modules/
 dist/
+build/

@@ -13,6 +13,6 @@ async def generate_lesson(topic: str, prompt: str) -> str:
         r = await client.post("https://api.openai.com/v1/responses", headers=headers, json=data)
         r.raise_for_status()
         j = r.json()
-        # Try to grab a text field safely; adapt if your model/SDK differs
+        
         return j.get("output", "") or j.get("content", [{}])[0].get("text", "AI response unavailable")
 

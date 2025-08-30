@@ -17,11 +17,13 @@ def verify_password(p: str, h: str) -> bool:
 def create_token(sub: int, role: str) -> str:
     now = datetime.now(timezone.utc)
     payload: Dict[str, Any] = {
-        "sub": sub, "role": role,
+        "sub": str(sub),  
+        "role": role,
         "iat": int(now.timestamp()),
         "exp": int((now + timedelta(minutes=TOKEN_EXPIRE_MIN)).timestamp()),
     }
     return jwt.encode(payload, settings.JWT_SECRET, algorithm=ALGO)
+
 
 def decode_token(token: str) -> Dict[str, Any]:
     return jwt.decode(token, settings.JWT_SECRET, algorithms=[ALGO])
